@@ -1,0 +1,26 @@
+﻿<Properties StartupConfiguration="{AB944CEA-774F-4895-972C-56BBF52657F8}|Default">
+  <MonoDevelop.Ide.ItemProperties.C21__Ex2 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="C21_Ex2/Board.cs">
+    <Files>
+      <File FileName="C21_Ex2/Program.cs" Line="96" Column="5" />
+      <File FileName="C21_Ex2/Board.cs" Line="134" Column="65" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="C21_Ex2" expanded="True">
+            <Node name="C21_Ex2" expanded="True">
+              <Node name="Board.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|anycpu" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
