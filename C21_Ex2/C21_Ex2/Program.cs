@@ -19,20 +19,25 @@ namespace C21_Ex2
 			while (stillPlaying)
 			{
 				Console.WriteLine("What would you like to do:");
-				Console.WriteLine("1. Start a new game");
-				Console.WriteLine("2. Quit\n");
+				Console.WriteLine("1. Start a new game vs human");
+				Console.WriteLine("2. Start a new game vs AI");
+				Console.WriteLine("3. Quit\n");
 
 				Console.Write("Type a number and hit <enter>: ");
 
-				var choice = GetUserInput("[12]");
+				var choice = GetUserInput("[123]");
 
 				switch (choice)
 				{
 					case "1":
-						PlayGame();
+						PlayGame(false);
 						Console.Clear();
 						break;
 					case "2":
+						PlayGame(true);
+						Console.Clear();
+						break;
+					case "3":
 						stillPlaying = false;
 						break;
 				}
@@ -55,7 +60,7 @@ namespace C21_Ex2
 			return input;
 		}
 
-		private static void PlayGame()
+		private static void PlayGame(bool playAgaintsAI)
 		{
 			string numRowsChoice = null;
 			while (numRowsChoice == null)
@@ -89,8 +94,20 @@ namespace C21_Ex2
 
 				boardgrid.DrawBoard();
 
-				var xoLoc = handleNextTurn(boardgrid);
-				boardgrid.SetCell(xoLoc, turn);
+				int newTokenIndex;
+
+				// check if its the turn of the AI
+				if (playAgaintsAI && turn == "O")
+                {
+					newTokenIndex = handleNextTurnAI(boardgrid);
+				}
+				else
+                {
+					newTokenIndex = handleNextTurn(boardgrid);
+				}
+
+
+				boardgrid.SetCell(newTokenIndex, turn);
 
 				turn = turn == "X" ? "O" : "X";
 			}
@@ -108,6 +125,25 @@ namespace C21_Ex2
 			Console.CursorVisible = false;
 			Console.ReadKey();
 			Console.CursorVisible = true;
+		}
+
+		private static int handleNextTurnAI(Board boardgrid)
+		{
+			Random rnd = new Random();
+
+			while (true)
+			{
+				int inputCol = rnd.Next(boardgrid.BoardGridSize);
+
+				for (int row = boardgrid.BoardGridSize - 1; row >= 0; row--)
+				{
+					if (boardgrid.GetCell(row, inputCol) == null)
+					{
+						return row * boardgrid.BoardGridSize + inputCol;
+					}
+
+				}
+			}
 		}
 
 		private static int handleNextTurn(Board boardgrid)

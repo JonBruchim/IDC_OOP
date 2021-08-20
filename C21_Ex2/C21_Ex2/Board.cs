@@ -63,45 +63,43 @@ namespace C21_Ex2
 
 		public string GetWinner()
         {
-			var numRows = (int)Math.Sqrt(boardGrid.Length);
-
 			// Check rows
-			for (int row = 0; row < numRows; row++)
+			for (int row = 0; row < BoardGridSize; row++)
 			{
-				if (boardGrid[row * numRows] != null)
+				if (boardGrid[row * BoardGridSize] != null)
 				{
 					bool hasTicTacToe = true;
-					for (int col = 1; col < numRows && hasTicTacToe; col++)
+					for (int col = 1; col < BoardGridSize && hasTicTacToe; col++)
 					{
-						if (boardGrid[row * numRows + col] != boardGrid[row * numRows])
+						if (boardGrid[row * BoardGridSize + col] != boardGrid[row * BoardGridSize])
 							hasTicTacToe = false;
 					}
 					if (hasTicTacToe)
 					{
 						// Put an indicator in the board to know which ones are part of the tic tac toe
-						for (int col = 0; col < numRows; col++)
-							boardGrid[row * numRows + col] += "!";
-						return boardGrid[row * numRows];
+						for (int col = 0; col < BoardGridSize; col++)
+							boardGrid[row * BoardGridSize + col] += "!";
+						return boardGrid[row * BoardGridSize];
 					}
 				}
 			}
 
 			// Check columns
-			for (int col = 0; col < numRows; col++)
+			for (int col = 0; col < BoardGridSize; col++)
 			{
 				if (boardGrid[col] != null)
 				{
 					bool hasTicTacToe = true;
-					for (int row = 1; row < numRows && hasTicTacToe; row++)
+					for (int row = 1; row < BoardGridSize && hasTicTacToe; row++)
 					{
-						if (boardGrid[row * numRows + col] != boardGrid[col])
+						if (boardGrid[row * BoardGridSize + col] != boardGrid[col])
 							hasTicTacToe = false;
 					}
 					if (hasTicTacToe)
 					{
 						// Put an indicator in the board to know which ones are part of the tic tac toe
-						for (int row = 0; row < numRows; row++)
-							boardGrid[row * numRows + col] += "!";
+						for (int row = 0; row < BoardGridSize; row++)
+							boardGrid[row * BoardGridSize + col] += "!";
 						return boardGrid[col];
 					}
 				}
@@ -111,35 +109,35 @@ namespace C21_Ex2
 			if (boardGrid[0] != null)
 			{
 				bool hasTicTacToe = true;
-				for (int row = 1; row < numRows && hasTicTacToe; row++)
+				for (int row = 1; row < BoardGridSize && hasTicTacToe; row++)
 				{
-					if (boardGrid[row * numRows + row] != boardGrid[0])
+					if (boardGrid[row * BoardGridSize + row] != boardGrid[0])
 						hasTicTacToe = false;
 				}
 				if (hasTicTacToe)
 				{
 					// Put an indicator in the board to know which ones are part of the tic tac toe
-					for (int row = 0; row < numRows; row++)
-						boardGrid[row * numRows + row] += "!";
+					for (int row = 0; row < BoardGridSize; row++)
+						boardGrid[row * BoardGridSize + row] += "!";
 					return boardGrid[0];
 				}
 			}
 
 			// Check top right -> bottom left diagonal
-			if (boardGrid[numRows - 1] != null)
+			if (boardGrid[BoardGridSize - 1] != null)
 			{
 				bool hasTicTacToe = true;
-				for (int row = 1; row < numRows && hasTicTacToe; row++)
+				for (int row = 1; row < BoardGridSize && hasTicTacToe; row++)
 				{
-					if (boardGrid[row * numRows + (numRows - 1 - row)] != boardGrid[numRows - 1])
+					if (boardGrid[row * BoardGridSize + (BoardGridSize - 1 - row)] != boardGrid[BoardGridSize - 1])
 						hasTicTacToe = false;
 				}
 				if (hasTicTacToe)
 				{
 					// Put an indicator in the board to know which ones are part of the tic tac toe
-					for (int row = 0; row < numRows; row++)
-						boardGrid[row * numRows + (numRows - 1 - row)] += "!";
-					return boardGrid[numRows - 1];
+					for (int row = 0; row < BoardGridSize; row++)
+						boardGrid[row * BoardGridSize + (BoardGridSize - 1 - row)] += "!";
+					return boardGrid[BoardGridSize - 1];
 				}
 			}
 
