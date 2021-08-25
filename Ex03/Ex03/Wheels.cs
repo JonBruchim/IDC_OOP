@@ -22,5 +22,13 @@
 
             AirPressure += airToAdd;
         }
+
+        // Overriding Object.ToString
+        public override string ToString()
+        {
+            return string.Format("Manufacture: {0}\n" +
+                "AirPressure: {1}, MaxAirPressure: {2}",
+                Manufacture, AirPressure, MaxAirPressure);
+        }
     }
 }

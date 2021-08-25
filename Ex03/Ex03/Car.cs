@@ -35,10 +35,19 @@ namespace Ex03
         #endregion Props
         #endregion Members and Props
 
-        public Car(Color color, int doors)
+        public Car(string model, string plateNumber, Wheels[] wheels, Color color, int doors)
+            : base(model, plateNumber, wheels)
         {
             Color = color;
             Doors = doors;
+        }
+
+        // Overriding Object.ToString
+        public override string ToString()
+        {
+            return string.Format("Color: {0}\n" +
+                "Doors: {1}",
+                Color, Doors);
         }
     }
 
@@ -99,9 +108,11 @@ namespace Ex03
         #endregion IGasolineObject Members and Props
 
 
-        GasolineCar(GasType gasType)
+        GasolineCar(string model, string plateNumber, Wheels[] wheels, Color color, int doors, GasType gasType, float maxGasLiterAmount)
+            : base(model, plateNumber, wheels, color, doors)
         {
-
+            GasType = gasType;
+            MaxGasLiterAmount = maxGasLiterAmount;
         }
     }
 
@@ -139,5 +150,11 @@ namespace Ex03
 
 
         #endregion IElectricObject Members and Props
+
+        ElectricCar(string model, string plateNumber, Wheels[] wheels, Color color, int doors, float maxBatteryHours)
+            : base(model, plateNumber, wheels, color, doors)
+        {
+            MaxBatteryHours = maxBatteryHours;
+        }
     }
 }

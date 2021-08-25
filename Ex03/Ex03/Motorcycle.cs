@@ -23,6 +23,22 @@ namespace Ex03
         }
         #endregion Props
         #endregion Members and Props
+
+        public Motorcycle(string model, string plateNumber, Wheels[] wheels, LicenceType licenceType, int engineVolume)
+            : base(model, plateNumber, wheels)
+        {
+            LicenceType = licenceType;
+            EngineVolume = engineVolume;
+        }
+
+        // Overriding Object.ToString
+        public override string ToString()
+        {
+            return base.ToString() + string.Format("LicenceType: {0}\n" +
+                "EngineVolume: {1}",
+                LicenceType, EngineVolume);
+        }
+
     }
 
     public enum LicenceType
@@ -81,9 +97,11 @@ namespace Ex03
         #endregion IGasolineObject Members and Props
 
 
-        GasolineMotorcycle(GasType gasType)
+        public GasolineMotorcycle(string model, string plateNumber, Wheels[] wheels, LicenceType licenceType, int engineVolume, GasType gasType, float maxGasLiterAmount)
+            : base(model, plateNumber, wheels, licenceType, engineVolume)
         {
-
+            GasType = gasType;
+            MaxGasLiterAmount = maxGasLiterAmount;
         }
     }
 
@@ -121,5 +139,11 @@ namespace Ex03
 
 
         #endregion IElectricObject Members and Props
+
+        public ElectricMotorcycle(string model, string plateNumber, Wheels[] wheels, LicenceType licenceType, int engineVolume, float maxBatteryHours)
+            : base(model, plateNumber, wheels, licenceType, engineVolume)
+        {
+            MaxBatteryHours = maxBatteryHours;
+        }
     }
 }

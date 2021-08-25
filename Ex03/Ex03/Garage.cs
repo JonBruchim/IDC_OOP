@@ -124,7 +124,7 @@ namespace Ex03
                 throw new ArgumentException("Car with this plate number isn't found");
             }
 
-            if (entry.Vehicle is not IGasolineObject)
+            if (!(entry.Vehicle is IGasolineObject))
             {
                 throw new ArgumentException("Vehicle is not gasoline powered");
             }
@@ -143,7 +143,7 @@ namespace Ex03
                 throw new ArgumentException("Car with this plate number isn't found");
             }
 
-            if (entry.Vehicle is not IElectricObject)
+            if (!(entry.Vehicle is IElectricObject))
             {
                 throw new ArgumentException("Vehicle is not electric");
             }

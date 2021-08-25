@@ -24,7 +24,8 @@ namespace Ex03
         #endregion Props
         #endregion Members and Props
 
-        public Truck(bool takingDangerousMaterial, float trunkVolume)
+        public Truck(string model, string plateNumber, Wheels[] wheels, bool takingDangerousMaterial, float trunkVolume)
+            : base(model, plateNumber, wheels)
         {
             TrunkVolume = trunkVolume;
             TakingDangerousMaterial = takingDangerousMaterial;
