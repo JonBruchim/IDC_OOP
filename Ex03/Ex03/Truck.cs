@@ -3,52 +3,31 @@ namespace Ex03
 {
     public class Truck : Vehicle
     {
-        const int MaxDoors = 5;
-        const int MinDoors = 2;
-
         #region Members and Props
         #region Members
-        private Color m_Color;
-        private int m_Doors;
+        private bool m_takingDangerousMaterial;
+        private float m_TrunkVolume;
         #endregion Members
 
         #region Props
-        public Color Color
+        public bool TakingDangerousMaterial
         {
-            get { return m_Color; }
-            set { m_Color = value; }
+            get { return m_takingDangerousMaterial; }
+            set { m_takingDangerousMaterial = value; }
         }
 
-        public int Doors
+        public float TrunkVolume
         {
-            get { return m_Doors; }
-            set
-            {
-                if (value < MinDoors || value > MaxDoors)
-                {
-                    throw new ValueOutOfRangeException("Truck door count isn't valid", MinDoors, MaxDoors);
-                }
-
-                m_Doors = value;
-            }
+            get { return m_TrunkVolume; }
+            set { m_TrunkVolume = value; }
         }
         #endregion Props
         #endregion Members and Props
 
-        public Truck(Color color, int doors)
+        public Truck(bool takingDangerousMaterial, float trunkVolume)
         {
-            Color = color;
-            Doors = doors;
+            TrunkVolume = trunkVolume;
+            TakingDangerousMaterial = takingDangerousMaterial;
         }
     }
-
-    public enum Color
-    {
-        Yellow,
-        White,
-        Black,
-        Blue,
-    }
-
-
 }
