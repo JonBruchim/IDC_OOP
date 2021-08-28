@@ -19,9 +19,9 @@ namespace Ex04.Menus.Delegates
             get { return m_Submenus; }
         }
 
-        public void Add(MenuItem i_NewChild)
+        public void Add(MenuItem i_NewSubmenu)
         {
-            m_Submenus[m_Submenus.Count + 1] = i_NewChild;
+            m_Submenus[m_Submenus.Count + 1] = i_NewSubmenu;
         }
 
         public override string ToString()
