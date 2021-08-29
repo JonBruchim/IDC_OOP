@@ -101,7 +101,7 @@ namespace Ex04.Menus.Interfaces
         private int getKeyInRangeFromUser(int i_Range)
         {
             int choosenNumber;
-            Console.WriteLine("please enter your choice:");
+            Console.WriteLine("Please select an option:");
             string choice = Console.ReadLine();
 
             while (!int.TryParse(choice, out choosenNumber) || !isInRange(choosenNumber, i_Range))
